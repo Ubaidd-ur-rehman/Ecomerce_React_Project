@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductBanner from "./ProductBanner";
 import { useNavigate } from "react-router-dom";
+import { Bars } from "react-loader-spinner";
 const EarBuds = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -9,24 +10,40 @@ const EarBuds = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/Product?Category=Earbuds")
-      .then((response) => {
-        console.log(response);
-        setProducts(response.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err.message || "Error occurred");
-      });
+    setTimeout(() => {
+      setLoading(true);
+      axios
+        .get("http://localhost:5000/Product?Category=Earbuds")
+        .then((response) => {
+          console.log(response);
+          setProducts(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setError(err.message || "Error occurred");
+        });
+    }, 1000);
   }, []);
 
   const handlnavigate = (ProductId) => {
     navigate(`/SingleProduct/${ProductId}`);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className="flex justify-center">
+        <Bars
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="spinner-loading"
+          wrapperClass="spinner-wrapper"
+          ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+          backgroundColor="#F4442E"
+        />
+      </div>
+    );
 
   if (error) {
     return <div>Error: {error}</div>;

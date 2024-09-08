@@ -221,7 +221,7 @@
       "Category": "Accessories",
       "title": "Premium Headphone Cable",
       "Price": 40.0,
-      "image": "/assets/Product/Accessories/Accessories5.jpg",
+      "image": "/assets/Product/Accessories/Accessories4.jpg",
       "description": "Upgrade your listening experience with this premium, tangle-free headphone cable."
     },
     {
@@ -229,23 +229,16 @@
       "Category": "Accessories",
       "title": "Comfort Ear Cushions",
       "Price": 20.0,
-      "image": "/assets/Product/Accessories/Accessories6.jpg",
+      "image": "/assets/Product/Accessories/Accessories2.jpg",
       "description": "Add comfort to your headphones with these soft and durable ear cushions."
     },
-    {
-      "id": "30",
-      "Category": "Accessories",
-      "title": "Headphone Travel Bag",
-      "Price": 32.0,
-      "image": "/assets/Product/Accessories/Accessories7.jpg",
-      "description": "Protect your headphones during travel with this stylish and secure travel bag."
-    },
+
     {
       "id": "31",
       "Category": "Speakers",
-      "title": "Portable Bluetooth Speaker",
+      "title": "Portable Bluetooth SpeakerPortable Bluetooth Speaker",
       "Price": 89.99,
-      "image": "/assets/Product/Speakers/speaker1.png",
+      "image": "/assets/Product/Speaker/Speaker1.png",
       "description": "Enjoy high-quality sound on the go with this compact and powerful portable Bluetooth speaker."
     },
     {
@@ -253,7 +246,7 @@
       "Category": "Speakers",
       "title": "Wireless Smart Speaker",
       "Price": 129.99,
-      "image": "/assets/Product/Speakers/speaker2.png",
+      "image": "/assets/Product/Speaker/Speaker2.png",
       "description": "Control your music with voice commands using this advanced wireless smart speaker."
     },
     {
@@ -261,7 +254,7 @@
       "Category": "Speakers",
       "title": "Outdoor Weatherproof Speaker",
       "Price": 149.99,
-      "image": "/assets/Product/Speakers/speaker3.png",
+      "image": "/assets/Product/Speaker/Speaker5.png",
       "description": "Durable and weather-resistant, perfect for outdoor gatherings and adventures."
     },
     {
@@ -269,7 +262,7 @@
       "Category": "Speakers",
       "title": "High-Fidelity Home Speaker System",
       "Price": 399.99,
-      "image": "/assets/Product/Speakers/speaker4.png",
+      "image": "/assets/Product/Speaker/Speaker4.png",
       "description": "Experience professional-grade sound with this high-fidelity home speaker system."
     },
     {
@@ -277,7 +270,7 @@
       "Category": "Speakers",
       "title": "Compact Wireless Speaker",
       "Price": 74.99,
-      "image": "/assets/Product/Speakers/speaker5.png",
+      "image": "/assets/Product/Speaker/Speaker5 (2).png",
       "description": "Small in size but big on sound, this compact wireless speaker is perfect for any space."
     },
     {
@@ -285,40 +278,8 @@
       "Category": "Speakers",
       "title": "Bluetooth Surround Sound Speaker",
       "Price": 199.99,
-      "image": "/assets/Product/Speakers/speaker6.png",
+      "image": "/assets/Product/Speaker/Speaker6.jpg",
       "description": "Enhance your audio experience with immersive surround sound and Bluetooth connectivity."
-    },
-    {
-      "id": "37",
-      "Category": "Speakers",
-      "title": "Multi-Room Audio System",
-      "Price": 499.99,
-      "image": "/assets/Product/Speakers/speaker7.png",
-      "description": "Stream music throughout your home with this versatile multi-room audio system."
-    },
-    {
-      "id": "38",
-      "Category": "Speakers",
-      "title": "Portable Party Speaker",
-      "Price": 159.99,
-      "image": "/assets/Product/Speakers/speaker8.png",
-      "description": "Bring the party with you with this powerful and portable party speaker."
-    },
-    {
-      "id": "39",
-      "Category": "Speakers",
-      "title": "Elegant Desktop Speaker",
-      "Price": 89.99,
-      "image": "/assets/Product/Speakers/speaker9.png",
-      "description": "Add a touch of elegance to your desk with this stylish and high-quality desktop speaker."
-    },
-    {
-      "id": "40",
-      "Category": "Speakers",
-      "title": "High-Performance Studio Monitor",
-      "Price": 349.99,
-      "image": "/assets/Product/Speakers/speaker10.png",
-      "description": "Perfect for studio use, this high-performance monitor delivers accurate and clear sound."
     }
   ]
 }

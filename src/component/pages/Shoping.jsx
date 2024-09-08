@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import OurProducts from "./OurProducts";
 
 const Shoping = () => {
   return (
@@ -11,8 +13,8 @@ const Shoping = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Free Delivery */}
           <div className="bg-white p-8 shadow-lg rounded-lg flex flex-col items-center text-center">
-            <div className="bg-purple-900 text-white p-4 rounded-full mb-6">
-              <i className="fas fa-truck fa-2x"></i>
+            <div className=" text-white p-4 rounded-full mb-6">
+              <img className="w-10" src="/assets/free-delivery.png" alt="" />
             </div>
             <h2 className="text-xl font-semibold mb-4">Free Delivery</h2>
             <p className="text-gray-600">
@@ -23,8 +25,8 @@ const Shoping = () => {
 
           {/* Self Pickup */}
           <div className="bg-white p-8 shadow-lg rounded-lg flex flex-col items-center text-center">
-            <div className="bg-purple-900 text-white p-4 rounded-full mb-6">
-              <i className="fas fa-store fa-2x"></i>
+            <div className=" text-white p-4 rounded-full mb-6">
+              <img className="w-11" src="/assets/delivery-courier.png" alt="" />
             </div>
             <h2 className="text-xl font-semibold mb-4">Self Pickup</h2>
             <p className="text-gray-600">
@@ -35,8 +37,8 @@ const Shoping = () => {
 
           {/* Warranty */}
           <div className="bg-white p-8 shadow-lg rounded-lg flex flex-col items-center text-center">
-            <div className="bg-purple-900 text-white p-4 rounded-full mb-6">
-              <i className="fas fa-shield-alt fa-2x"></i>
+            <div className=" text-white p-4 rounded-full mb-6">
+              <img className="w-11" src="/assets/protection.png" alt="" />
             </div>
             <h2 className="text-xl font-semibold mb-4">Warranty</h2>
             <p className="text-gray-600">
@@ -49,7 +51,7 @@ const Shoping = () => {
 
       <div className="mt-12">
         <button className="bg-gradient-to-r from-purple-900 via-gray-800 to-purple-900 text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:opacity-90 transition duration-300">
-          Shop Now
+          <Link to="OurProducts">Shop Now</Link>
         </button>
       </div>
     </div>

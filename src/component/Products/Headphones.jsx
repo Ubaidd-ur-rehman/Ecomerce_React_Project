@@ -1,23 +1,50 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux"; // Import useDispatch from Redux
+import { addToCart } from "../../Redux/CartAction"; // Import addToCart action
 import ProductBanner from "./ProductBanner";
+import { Bars } from "react-loader-spinner";
 
 const Headphones = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // Initialize useDispatch
   const [products, setProducts] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState(3);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/Product?Category=Headphones")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setTimeout(() => {
+      setLoading(true);
+      axios
+        .get("http://localhost:5000/Product?Category=Headphones")
+        .then((response) => {
+          setProducts(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }, 1000);
   }, []);
+
+  // Corrected Loader Component Display
+  if (loading) {
+    return (
+      <div className="flex justify-center h-screen">
+        <Bars
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="spinner-loading"
+          wrapperClass="spinner-wrapper"
+          ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+          backgroundColor="#F4442E"
+        />
+      </div>
+    );
+  }
 
   const showMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 3);
@@ -25,6 +52,11 @@ const Headphones = () => {
 
   const handleNavigate = (ProductId) => {
     navigate(`/SingleProduct/${ProductId}`);
+  };
+
+  // Add to Cart handler
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -49,7 +81,7 @@ const Headphones = () => {
               <img
                 src={product.image || "default-image.png"} // Add a fallback image
                 alt={product.title}
-                className="w-full h-48  sm:h-56 md:h-64 lg:h-72  object-center" // Adjusted class for better image display
+                className="w-full h-48  sm:h-56 md:h-64 lg:h-72 object-center" // Adjusted class for better image display
               />
             </div>
 
@@ -71,7 +103,10 @@ const Headphones = () => {
                   ? `${product.description.substring(0, 80)}...`
                   : product.description || "No description available"}
               </p>
-              <button className="bg-gradient-to-r from-purple-900 via-gray-800 to-purple-900 text-white py-2 px-4 rounded-lg mt-4 hover:opacity-90 transition-transform transform hover:translate-y-1 w-full">
+              <button
+                onClick={() => handleAddToCart(product)} // Adding onClick to dispatch action
+                className="bg-gradient-to-r from-purple-900 via-gray-800 to-purple-900 text-white py-2 px-4 rounded-lg mt-4 hover:opacity-90 transition-transform transform hover:translate-y-1 w-full"
+              >
                 Add to Cart
               </button>
             </div>

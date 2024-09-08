@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"; // Import useDispatch
 import { addToCart } from "../../Redux/CartAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Bars } from "react-loader-spinner";
 const SingleProduct = () => {
   const notify = () => toast.success("Item successfully add to Cart");
   const { id } = useParams(); // Get the product ID from the URL
@@ -14,28 +15,45 @@ const SingleProduct = () => {
   const dispatch = useDispatch(); // Initialize dispatch
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/Product/${id}`) // Fetch product by ID
-      .then((response) => {
-        console.log(response.data); // Log the response to check data format
-        setProduct(response.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err.message || "Error occurred");
-        setLoading(false);
-      });
+    setTimeout(() => {
+      setLoading(true);
+      axios
+        .get(`http://localhost:5000/Product/${id}`) // Fetch product by ID
+        .then((response) => {
+          console.log(response.data); // Log the response to check data format
+          setProduct(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setError(err.message || "Error occurred");
+          setLoading(false);
+        });
+    }, 1000);
   }, [id]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    <div className="flex justify-center h-screen"></div>;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   if (!product) {
-    return <div>No product found</div>;
+    return (
+      <div className="flex justify-center">
+        <Bars
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="spinner-loading"
+          wrapperClass="spinner-wrapper"
+          ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+          backgroundColor="#F4442E"
+        />
+      </div>
+    );
   }
 
   // Check if the image URL is valid; provide a default if not

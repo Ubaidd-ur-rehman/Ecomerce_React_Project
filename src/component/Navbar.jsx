@@ -1,9 +1,12 @@
-import { Link, Navigate } from "react-router-dom";
-import { useState } from "react";
 import Dropdown from "./pages/Utility/DropDown";
 import PagesDropDown from "./pages/Utility/PagesDropDown";
+import { Link, Navigate } from "react-router-dom";
+import { useState } from "react";
 import AddToCart from "./AddToCart";
 function Navbar() {
+  const handleClick = () => {
+    window.location.href = "https://buy.stripe.com/test_6oEeWP7QL2oM1DWbII";
+  };
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isPagesDropDownOpen, setIsPagesDropDownOpen] = useState(false);
   const [isCartVisible, setIsCargVisible] = useState(false);
@@ -102,8 +105,11 @@ function Navbar() {
               </span>
             </div>
 
-            <button className="bg-gradient-to-r from-purple-900 via-gray-800 to-purple-900 text-white px-5 py-3 rounded-lg hover:bg-indigo-700">
-              <Link to="/OurProducts">Shop Now</Link>
+            <button
+              onClick={handleClick}
+              className="bg-gradient-to-r from-purple-900 via-gray-800 to-purple-900 text-white px-5 py-3 rounded-lg hover:bg-indigo-700"
+            >
+              <Link to="/OurProducts">Pay Now</Link>
             </button>
           </div>
         </div>

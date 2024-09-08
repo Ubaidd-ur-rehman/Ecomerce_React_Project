@@ -21,7 +21,7 @@ const ProductCategory = () => {
           onClick={() => navigate("Accessories")}
           className="max-w-sm bg-slate-100 cursor-pointer shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
         >
-          <div className="relative rounded-3xl bg-gray-500 ">
+          <div className=" rounded-3xl bg-gray-500 ">
             <img
               className="w-full h-64 rounded-full p-8 object-contain"
               src="/assets/Products/Wireless_charger.png"
@@ -44,7 +44,7 @@ const ProductCategory = () => {
         <div className="max-w-sm bg-slate-50 cursor-pointer shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
           <div
             onClick={() => navigate("/Earbuds")}
-            className="relative rounded-3xl bg-slate-400"
+            className=" rounded-3xl bg-slate-400"
           >
             <img
               className="w-full h-64 bg-gray-500 object-contain"
@@ -71,7 +71,7 @@ const ProductCategory = () => {
           }}
           className="max-w-sm bg-slate-50 cursor-pointer shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
         >
-          <div className="relative h-64 rounded-3xl bg-slate-400">
+          <div className=" h-64 rounded-3xl bg-slate-400">
             <img
               className="w-full h-64 bg-gray-500 object-contain"
               src="/assets/Product/Headphones/Headphone14.png"
@@ -94,7 +94,7 @@ const ProductCategory = () => {
             onClick={() => {
               navigate("/Speaker");
             }}
-            className="relative rounded-3xl bg-slate-400"
+            className=" rounded-3xl bg-slate-400"
           >
             <img
               className="w-full h-64 bg-gray-500 p-8 object-contain"

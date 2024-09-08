@@ -5,7 +5,7 @@ const Blog = () => {
     toast.success("Subscribed successfully");
   };
   return (
-    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="block bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
       <div className="mb-12 flex flex-col lg:flex-row lg:justify-between items-start lg:items-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-4 lg:mb-0">
@@ -23,11 +23,11 @@ const Blog = () => {
       <div className="grid text-left grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Blog Post 1 */}
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
-          <div className="w-full h-48 relative">
+          <div className="w-full h-48 ">
             <img
               src="/assets/blog/GirlHeadphonesAI.png"
               alt="Blog 1"
-              className="w-full h-full object-cover" // Ensure the image covers the section
+              className="w-full h-full object-contain" // Ensure the image covers the section
             />
           </div>
           <div className="p-4">
@@ -51,11 +51,11 @@ const Blog = () => {
 
         {/* Blog Post 2 */}
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
-          <div className="w-full h-48 relative">
+          <div className="w-full h-48 ">
             <img
-              src="/assets/GirlHeadphone1.png"
+              src="/assets/blog/GirlWithHeadphones.jpg"
               alt="Blog 2"
-              className="w-full h-full object-cover" // Ensure the image covers the section
+              className="w-full h-full object-contain" // Ensure the image covers the section
             />
           </div>
           <div className="p-4">
@@ -79,11 +79,11 @@ const Blog = () => {
 
         {/* Blog Post 3 */}
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
-          <div className="w-full h-48 relative">
+          <div className="w-full h-48 ">
             <img
               src="/assets/blog/AIEarbuds.png" // Update with your actual image path
               alt="Blog 3"
-              className="w-full h-full object-cover" // Ensure the image covers the section
+              className="w-full h-full object-contain" // Ensure the image covers the section
             />
           </div>
           <div className="p-4">

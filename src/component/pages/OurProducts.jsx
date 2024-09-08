@@ -4,27 +4,14 @@ import ProductBanner from "../Products/ProductBanner";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/CartAction";
+import { Bars } from "react-loader-spinner";
 
 const OurProducts = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState(8);
+  const [loading, setLoading] = useState(true); // Initialize loading to true
   const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/Product")
-      .then((response) => {
-        const updatedProducts = response.data.map((product) => ({
-          ...product,
-          price: generateRandomPrice(), // Assign random price
-        }));
-        const shuffledProducts = shuffleArray(updatedProducts); // Shuffle products
-        setProducts(shuffledProducts);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   // Function to shuffle the array
   const shuffleArray = (array) => {
@@ -35,6 +22,43 @@ const OurProducts = () => {
   const generateRandomPrice = () => {
     return (Math.random() * (100 - 10) + 10).toFixed(2);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true); // Start loading when fetching data
+      axios
+        .get("http://localhost:5000/Product")
+        .then((response) => {
+          const updatedProducts = response.data.map((product) => ({
+            ...product,
+            price: generateRandomPrice(), // Assign random price
+          }));
+          const shuffledProducts = shuffleArray(updatedProducts); // Shuffle products
+          setProducts(shuffledProducts);
+          setLoading(false); // Stop loading after fetching data
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false); // Stop loading if an error occurs
+        });
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center h-screen">
+        <Bars
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="spinner-loading"
+          wrapperClass="spinner-wrapper"
+          ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+          backgroundColor="#F4442E"
+        />
+      </div>
+    );
+  }
 
   const showMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 4);

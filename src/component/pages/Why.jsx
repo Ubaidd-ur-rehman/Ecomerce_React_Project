@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Why = () => {
   return (
@@ -67,12 +68,16 @@ const Why = () => {
       </div>
 
       <div className="inline-block items-center mt-12 space-x-6">
-        <button className="bg-gradient-to-r text-lg from-purple-900 via-gray-800 to-purple-900 text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:opacity-90 transition duration-300">
-          Shop Now
-        </button>
-        <button className=" text-purple-900  py-3 text-lg px-8 rounded-full font-semibold hover:text-purple-500  hover:underline transition duration-300">
-          Learn More
-        </button>
+        <Link to="OurProducts">
+          <button className="bg-gradient-to-r text-lg from-purple-900 via-gray-800 to-purple-900 text-white py-3 px-8 rounded-full font-semibold shadow-lg hover:opacity-90 transition duration-300">
+            Shop Now
+          </button>
+        </Link>
+        <Link to="/LearnMore">
+          <button className=" text-purple-900  py-3 text-lg px-8 rounded-full font-semibold hover:text-purple-500  hover:underline transition duration-300">
+            Learn More
+          </button>
+        </Link>
       </div>
     </div>
   );

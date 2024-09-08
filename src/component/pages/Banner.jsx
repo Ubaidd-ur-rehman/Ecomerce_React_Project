@@ -14,12 +14,16 @@ function Banner({ title, description, imageSrc }) {
             Experience Sound in its Purest Form
           </h2>
           <div className="flex justify-left md:justify-start space-x-4">
-            <button className="bg-white text-indigo-600 hover:bg-gray-200 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold transition duration-300">
-              <Link to="/OurProducts">Shop Now</Link>
-            </button>
-            <button className="bg-transparent border border-white hover:bg-white hover:text-indigo-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold transition duration-300">
-              <Link to="/LearnMore">Learn More</Link>
-            </button>
+            <Link to="/OurProducts">
+              <button className="bg-white text-indigo-600 hover:bg-gray-200 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold transition duration-300">
+                Shop Now
+              </button>
+            </Link>
+            <Link to="/LearnMore">
+              <button className="bg-transparent border border-white hover:bg-white hover:text-indigo-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold transition duration-300">
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
 

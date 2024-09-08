@@ -54,7 +54,7 @@ const PagesDropDown = ({ isOpen }) => {
         </div>
         <div className="text-center mt-4">
           <Link
-            to="/AllPages"
+            to="/OurProducts"
             className="inline-block text-sm font-semibold text-blue-600 hover:text-blue-700 transition duration-200 underline"
           >
             Discover All Pages

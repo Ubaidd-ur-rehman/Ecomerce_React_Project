@@ -3,21 +3,49 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ProductBanner from "./ProductBanner";
 import { Navigate } from "react-router-dom";
+import { Bars } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
 const Speaker = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState(3);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/Product?Category=Headphones")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setTimeout(() => {
+      setLoading(true);
+      axios
+        .get("http://localhost:5000/Product?Category=Speakers")
+        .then((response) => {
+          setProducts(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }, 1000);
   }, []);
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center h-screen">
+        <Bars
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="spinner-loading"
+          wrapperClass="spinner-wrapper"
+          ballColors={["#ff0000", "#00ff00", "#0000ff"]}
+          backgroundColor="#F4442E"
+        />
+      </div>
+    );
+  }
 
   const showMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 3);
@@ -37,6 +65,9 @@ const Speaker = () => {
         {products.length > 0 ? (
           products.map((product) => (
             <div
+              onClick={() => {
+                handleNavigate(product.id);
+              }}
               key={product.id}
               className="max-w-sm bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 ease-in-out"
             >
@@ -45,9 +76,6 @@ const Speaker = () => {
                   src={product.image}
                   alt={product.title}
                   className="object-contain h-full w-full"
-                  onClick={() => {
-                    handleNavigate(product.id);
-                  }}
                 />
               </div>
               <div className="p-6">
@@ -63,11 +91,13 @@ const Speaker = () => {
                     : product.description}
                 </p>
                 <p className="text-lg font-bold text-gray-800 mt-4">
-                  ${product.price}
+                  ${product.Price} <span>USD</span>
                 </p>
-                <button className="mt-6 w-full bg-purple-700 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors duration-300">
-                  Add to Cart
-                </button>
+                <div onClick={() => handleAddToCart(product)}>
+                  <button className="mt-6 w-full bg-purple-700 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors duration-300">
+                    Check It Out
+                  </button>
+                </div>
               </div>
             </div>
           ))

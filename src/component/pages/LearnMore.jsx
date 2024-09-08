@@ -2,13 +2,13 @@ import React from "react";
 
 const LearnMore = () => {
   return (
-    <div className="bg-gray-50 min-h-screen py-16">
+    <div className="bg-gray-100 min-h-screen py-16 px-4 lg:px-0">
       {/* Introduction Section */}
-      <section className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-md mb-12">
-        <h1 className="text-4xl font-bold text-center text-blue-700 mb-6">
+      <section className="max-w-4xl mx-auto p-10 bg-white rounded-lg shadow-lg mb-16">
+        <h1 className="text-5xl font-extrabold text-center text-blue-800 mb-8">
           Learn More About Our Services
         </h1>
-        <p className="text-gray-700 text-center text-lg">
+        <p className="text-gray-600 text-center text-xl leading-relaxed">
           Discover the unique features and benefits that make our services stand
           out. From innovative solutions to exceptional support, find out how we
           can help you achieve your goals.
@@ -17,49 +17,67 @@ const LearnMore = () => {
 
       {/* Features Section */}
       <section className="max-w-6xl mx-auto mt-12 p-8">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
+        <h2 className="text-4xl font-semibold text-gray-800 mb-12 text-center">
           Key Features
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="p-8 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2"
             >
-              <h3 className="text-xl font-bold text-blue-600 mb-4">
+              <h3 className="text-2xl font-bold text-blue-700 mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <p className="text-gray-500">{feature.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="max-w-6xl mx-auto mt-12 p-8">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
+      <section className="max-w-6xl  mx-auto mt-16 p-8 bg-white rounded-lg shadow-lg">
+        <h2 className="text-4xl font-semibold text-gray-800 mb-8 text-center">
           Benefits of Using Our Services
         </h2>
-        <ul className="space-y-4 text-gray-700 list-disc list-inside">
+        <ul className="space-y-6 ">
           {benefits.map((benefit, index) => (
-            <li key={index} className="text-lg">
-              {benefit}
+            <li
+              key={index}
+              className="flex cursor-pointer justify-center justify-items-center space-x-3 text-lg text-gray-700"
+            >
+              <span className="flex-shrink-0">
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 4.707 7.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+              <p className="leading-relaxed hover:text-blue-700 transition-colors duration-300">
+                {benefit}
+              </p>
             </li>
           ))}
         </ul>
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-blue-600 mt-16 py-12">
+      <section className="bg-gradient-to-r from-blue-600 to-purple-700 mt-20 py-16">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-3xl font-bold text-white mb-6">
             Ready to Transform Your Experience?
           </h3>
-          <p className="text-white text-lg mb-6">
+          <p className="text-white text-lg mb-8">
             Take the next step today and see the impact our services can have on
             your business or personal life.
           </p>
-          <button className="bg-white text-blue-600 py-3 px-6 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition duration-300">
+          <button className="bg-white text-blue-600 py-3 px-8 rounded-full font-semibold hover:bg-blue-700 hover:text-white transition duration-300 transform hover:scale-105 shadow-lg">
             Get Started
           </button>
         </div>

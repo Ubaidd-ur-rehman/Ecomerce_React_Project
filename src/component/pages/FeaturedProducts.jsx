@@ -80,7 +80,7 @@ const FeaturedProducts = () => {
       <div className="flex justify-center items-center w-full mt-12">
         <button
           onClick={() => {
-            navigate("OurProducts");
+            navigate("/OurProducts");
           }}
           className="bg-gradient-to-r h-14 w-48 from-purple-900 via-gray-800 to-purple-900 rounded-lg text-white hover:opacity-90 transition"
         >
